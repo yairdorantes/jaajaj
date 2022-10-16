@@ -27,10 +27,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-k)33yu-r!q!)3=h1z*e30natcn-nvtom44o1r*r(!sbd3&8siu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -103,6 +103,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 CORS_ORIGIN_ALLOW_ALL = True
 ROOT_URLCONF = 'duolingoDjango.urls'
@@ -196,3 +197,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # # JAZZMIN_SETTINGS["show_ui_builder"] = True
 # MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'mediafiles')
 # MEDIA_URL = '/media/'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
